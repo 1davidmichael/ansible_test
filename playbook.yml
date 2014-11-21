@@ -1,0 +1,17 @@
+---
+- hosts: all
+  sudo: true
+  roles:
+    - common
+
+- hosts: web_servers
+  sudo: true
+  roles:
+    - nginx
+    - php
+
+- hosts: db_servers
+  sudo: true
+  roles:
+    - mysql
+

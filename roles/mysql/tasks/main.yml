@@ -1,0 +1,14 @@
+- name: install MySQLdb package
+  yum: name=MySQL-python state=present
+  
+- name: install mariadb
+  yum: name=mariadb-server state=present
+
+- name: Control mariadb service
+  service: name=mariadb state=started enabled=yes
+
+- name: Create drupal db
+  mysql_db: name=drupal state=present
+
+- name: Create drupal sql user
+  mysql_user: name=drupal password=drupal priv=drupal.*"SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES" state=present

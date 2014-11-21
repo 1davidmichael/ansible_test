@@ -1,0 +1,13 @@
+- name: Install needed php packages
+  yum: name={{ item }} state=present
+  with_items:
+    - php
+    - php-fpm
+    - php-mbstring
+    - php-pdo
+    - php-mbstring
+    - php-xml
+    - php-pecl-memcache
+
+- name: Control php-fpm service
+  service: name=php-fpm state=started enabled=yes

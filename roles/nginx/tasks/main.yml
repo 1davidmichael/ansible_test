@@ -1,0 +1,8 @@
+- name: Install nginx yum repo
+  copy: src=etc/yum.repos.d/nginx.repo dest=/etc/yum.repos.d/nginx.repo
+
+- name: Install nginx package
+  yum: name=nginx state=present
+
+- name: Control nginx service
+  service: name=nginx state=started enabled=yes

@@ -1,0 +1,5 @@
+- name: Disable firewalld
+  service: name=firewalld enabled=no state=stopped
+
+- name: Install epel yum repo
+  copy: src=etc/yum.repos.d/epel.repo dest=/etc/yum.repos.d/epel.repo
