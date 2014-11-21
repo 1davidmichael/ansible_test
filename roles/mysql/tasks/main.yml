@@ -11,4 +11,4 @@
   mysql_db: name=drupal state=present
 
 - name: Create drupal sql user
-  mysql_user: name=drupal password=drupal priv=drupal.*"SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES" state=present
+  mysql_user: name=drupal password=drupal priv='drupal.*:SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,INDEX,ALTER,CREATE TEMPORARY TABLES' state=present
